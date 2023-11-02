@@ -18,7 +18,7 @@ def pseudopolynomialPartition(arr):
     dpTable = [[True for i in range(n + 1)] for j in range(halfSum + 1)]
 
     for x in range(0, n + 1):
-        dpTable[0][i] = True
+        dpTable[0][x] = True
 
     for y in range(1, halfSum + 1):
         dpTable[y][0] = False
