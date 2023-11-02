@@ -1,3 +1,11 @@
+"""
+GWU CSCI 6212: Project 3
+Group Members:
+    - Isha Paliwal
+    - Shaik Sameer
+    - Lauren Hahn
+    - Benjamin Marasco
+"""
 import time
 
 def pseudopolynomialPartition(arr):
@@ -17,9 +25,11 @@ def pseudopolynomialPartition(arr):
     # Step #3: Set up the dynamic programming table
     dpTable = [[True for i in range(n + 1)] for j in range(halfSum + 1)]
 
+    # Base Case 1 - For all j, we can always have a sum of 0.
     for x in range(0, n + 1):
         dpTable[0][x] = True
 
+    # Base Case 2 - For all sum greater than 0, we can't have this when j is always 0.
     for y in range(1, halfSum + 1):
         dpTable[y][0] = False
 
@@ -27,14 +37,17 @@ def pseudopolynomialPartition(arr):
     # Example: dpTable[1][4] --> Within the subset of {a0, a1, a2, a3}, does it have a sum that's 
     #                            equal to 1? If it's yes, then dpTable[1][4] equals True. Otherwise,
     #                            it'll equal to False.
+    # This is the recurrence relation portion where we find the max between the two results to see whether to use
+    # Despite using a nested for loop, this is O(ns) as the first loop only runs half of s. In time complexity, 
+    # that is O(ns) as we remove any constant numbers.
     for i in range(1, halfSum + 1):
         for j in range(1, n + 1):
             dpTable[i][j] = dpTable[i][j - 1]
  
             if i >= arr[j - 1]:
-                dpTable[i][j] = dpTable[i][j] or dpTable[i - arr[j - 1]][j - 1]
+                dpTable[i][j] = dpTable[i - arr[j - 1]][j - 1] or dpTable[i][j]
 
-    # Below is printing out what the two set would look like when it's equally partitioned
+    # IMPORTANT: Below is printing out what the two set would look like when it's equally partitioned
     # subSum = halfSum
     # a = []
     # b = []
