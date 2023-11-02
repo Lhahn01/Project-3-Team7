@@ -1,1 +1,1 @@
-# Project-3-Team7
+# Team 7 - Project 3: Pseudo-Polynomial Partition
