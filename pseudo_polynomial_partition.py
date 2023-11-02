@@ -7,6 +7,7 @@ Group Members:
     - Benjamin Marasco
 """
 import time
+from numpy import random
 
 def pseudopolynomialPartition(arr):
     sum = 0
@@ -72,6 +73,10 @@ def main():
     # arr = [7, 5, 1, 33, 11, 9, 55, 9, 11, 1, 52, 45, 25, 16, 33, 33, 32, 25, 10, 11, 46, 30] --> n = 22
     # arr = [7, 5, 1, 33, 9, 8, 9, 55, 9, 11, 1, 44, 45, 15, 16, 33, 33, 24, 25, 10, 11, 46, 30, 20] --> n = 24
     arr = [7, 5, 1, 33, 11, 9, 36, 9, 21, 27, 11, 1, 19, 1, 52, 45, 25, 16, 33, 14, 32, 25, 10, 10, 25, 3, 19] # n= 27
+
+    # Test for random:
+    # arr = random.randint(100, size=(12))
+
     start = time.time_ns()
     ret = pseudopolynomialPartition(arr)
     end = time.time_ns()
