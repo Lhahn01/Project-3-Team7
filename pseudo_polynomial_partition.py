@@ -19,7 +19,7 @@ def pseudopolynomialPartition(arr):
 
     # Step #2: See if the sum can be evenly divided by 2
     if sum % 2 != 0:
-        return None
+        return False
     
     halfSum = sum // 2
     
